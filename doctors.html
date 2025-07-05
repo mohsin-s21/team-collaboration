@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Available Doctors | DocSpot</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #e0f7fa, #f1f8e9);
+      margin: 0;
+    }
+    header {
+      background-color: #00796b;
+      color: #fff;
+      padding: 20px 0;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      position: relative;
+    }
+    header h1 { margin: 0; font-size: 28px; }
+    nav {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 16px;
+      margin-left: 20px;
+    }
+    nav a:hover { text-decoration: underline; }
+    .container {
+      max-width: 600px;
+      margin: 40px auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    }
+    h2 {
+      color: #004d40;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .doctor-card {
+      padding: 16px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      margin-bottom: 14px;
+      background: #f9f9f9;
+    }
+    .doctor-card strong {
+      font-size: 18px;
+      color: #00796b;
+    }
+    a {
+      display: block;
+      margin-top: 25px;
+      color: #3498db;
+      text-align: center;
+      text-decoration: none;
+    }
+    a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>DocSpot</h1>
+  <nav><a href="index.html">🏠 Home</a></nav>
+</header>
+
+<div class="container">
+  <h2>Available Doctors</h2>
+  <div id="doctorsList"></div>
+  <a href="index.html">⬅️ Back to Home</a>
+</div>
+
+<script>
+const doctorsList = [
+  { _id: "balaji", name: "Dr. Balaji Garugu", specialty: "Psychiatrist", contact: "95023 00000", availability: "9AM - 9PM", fee: "₹350" },
+  { _id: "showkath", name: "Dr. S. Showkath Ali", specialty: "Dermatologist", contact: "95024 11111", availability: "10AM - 3PM", fee: "₹200" },
+  { _id: "muralidhara", name: "Dr. Muralidhara Reddy Kona", specialty: "Pulmonologist", contact: "95025 22222", availability: "9:30AM - 2PM", fee: "₹300" },
+  { _id: "santhi", name: "Santhi Multi Speciality Hospital", specialty: "Multi-speciality", contact: "95026 33333", availability: "24/7", fee: "Varies" },
+  { _id: "ramanna", name: "K.C. Ramanna Hospital", specialty: "General Hospital", contact: "95027 44444", availability: "24/7", fee: "Varies" }
+];
+
+const container = document.getElementById('doctorsList');
+doctorsList.forEach(d => {
+  const card = document.createElement('div');
+  card.className = "doctor-card";
+  card.innerHTML = `
+  <p><strong>Name:</strong> ${d.name}</p>
+  <p><strong>Specialty:</strong> ${d.specialty}</p>
+  <p><strong>Contact:</strong> ${d.contact}</p>
+  <p><strong>Availability:</strong> ${d.availability}</p>
+  <p><strong>Fee:</strong> ${d.fee}</p>
+  <a href="doctor-profile.html?id=${d._id}" style="color:#3498db;">View Profile</a>
+`;
+
+  container.appendChild(card);
+});
+</script>
+
+</body>
+</html>
